@@ -3,6 +3,12 @@
 # 定義下載目錄
 DOWNLOAD_DIR="/home/lubuntu/Downloads"
 
+# 函數：關閉 Grass
+close_grass() {
+    echo "正在關閉正在運行的 Grass..."
+    pkill -f grass
+}
+
 # 找到最新的 .deb 文件
 latest_file=$(ls -t "$DOWNLOAD_DIR"/Grass_*.deb 2>/dev/null | head -n 1)
 
@@ -11,9 +17,8 @@ echo "找到的最新文件: $latest_file"
 
 # 檢查最新文件是否存在
 if [ -f "$latest_file" ]; then
-    # 關閉正在運行的 Grass
-    echo "正在關閉正在運行的 Grass..."
-    pkill -f grass || true  # 終止 Grass 進程，確保即使失敗也不會終止腳本
+    # 關閉 Grass
+    close_grass
 
     echo "安裝最新更新: $latest_file"
     sudo dpkg -i "$latest_file"  # 安裝 .deb 文件
