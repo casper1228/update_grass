@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # 定義下載目錄
-DOWNLOAD_DIR="$HOME/Downloads"
+DOWNLOAD_DIR="/home/lubuntu/Downloads"  # 使用完整路徑
 echo "下載目錄: $DOWNLOAD_DIR"
 
 # 找到最新的 .deb 文件
-latest_file=$(ls -t "$HOME/Downloads"/Grass_*.deb 2>/dev/null | head -n 1)
+latest_file=$(ls -t "$DOWNLOAD_DIR"/grass_*.deb 2>/dev/null | head -n 1)
 
 # 檢查最新文件是否存在
 if [ -f "$latest_file" ]; then
