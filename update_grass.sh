@@ -7,6 +7,9 @@ echo "下載目錄: $DOWNLOAD_DIR"
 # 找到最新的 .deb 文件
 latest_file=$(ls -t "$DOWNLOAD_DIR"/grass_*.deb 2>/dev/null | head -n 1)
 
+# 輸出找到的文件
+echo "找到的最新文件: $latest_file"
+
 # 檢查最新文件是否存在
 if [ -f "$latest_file" ]; then
     echo "安裝最新更新: $latest_file"
