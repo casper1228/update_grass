@@ -13,7 +13,7 @@ echo "找到的最新文件: $latest_file"
 if [ -f "$latest_file" ]; then
     # 關閉正在運行的 Grass
     echo "正在關閉正在運行的 Grass..."
-    pkill grass  # 終止 Grass 進程
+    pkill -f grass || true  # 終止 Grass 進程，確保即使失敗也不會終止腳本
 
     echo "安裝最新更新: $latest_file"
     sudo dpkg -i "$latest_file"  # 安裝 .deb 文件
