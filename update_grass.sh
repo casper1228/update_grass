@@ -4,7 +4,7 @@
 DOWNLOAD_DIR="/home/lubuntu/Downloads"
 
 # 找到最新的 .deb 文件
-latest_file=$(ls -t "$DOWNLOAD_DIR"/grass_*.deb 2>/dev/null | head -n 1)
+latest_file=$(ls -t "$DOWNLOAD_DIR"/Grass_*.deb 2>/dev/null | head -n 1)
 
 # 輸出找到的文件
 echo "找到的最新文件: $latest_file"
